@@ -1,0 +1,16 @@
+postgres:  
+  image: postgres:9.5
+  
+microblog:  
+  build: .
+  dockerfile: Dockerfile-dev
+  ports:
+    - "8000:8000"
+    - "2000:22"
+  volumes:
+    - .:/app
+    - .pycharm_helpers/:/root/.pycharm_helpers
+  links:
+    - postgres
+
+

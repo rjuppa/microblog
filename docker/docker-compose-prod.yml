@@ -1,0 +1,13 @@
+postgres:  
+  image: postgres:9.5
+  
+microblog:  
+  build: .
+  ports:
+    - "8000:8000"
+  volumes:
+    - .:/app
+  links:
+    - postgres
+
+

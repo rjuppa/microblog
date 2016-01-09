@@ -1,0 +1,26 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <a href="{{ url_for('posts_list') }}">[back]</a>
+    <hr>
+    <div class="clearfix"></div>
+
+    <div class="bs-callout bs-callout-info">
+        <div class="row">
+            <div class="col-md-9"><h4>{{ post.title }}</h4></div>
+            <div class="col-md-3">
+                <span class="text-muted">{{ momentjs(post.timestamp).format('LL') }}</span>&nbsp;
+                    <a href="{{ url_for('posts_edit', id=post.id) }}">[edit]</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+            <p>
+                {{ use_html().render(post.body) }}
+            </p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
