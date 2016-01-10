@@ -1,0 +1,9 @@
+# dump db
+pg_dump -Fc microblog > /tmp/microblog.dump
+
+# restore db
+pg_restore -h 172.17.0.2 -p 5432 -d microblog -U postgres microblog.dump
+
+
+
+

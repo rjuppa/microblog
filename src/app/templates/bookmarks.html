@@ -1,0 +1,21 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Bookmarks</h2>
+  <hr>
+    <a href="{{ url_for('bookmarks') }}">All</a>&nbsp;
+    {% for tag in tags %}
+        |&nbsp;<a href="{{ url_for('bookmarks_list', tag=tag) }}">{{ tag }}</a>&nbsp;
+    {% endfor %}
+  <hr>
+  {% for link in links %}
+      <p>
+        <a href="{{ link.url }}" target="_blank">{{ link.name }}</a>&nbsp;<a href="{{ url_for('bookmarks_edit', id=link.id) }}">[edit]</a>
+      </p>
+  {% endfor %}
+
+  <p>
+    <a href="{{ url_for('bookmarks_new') }}">[new]</a>
+  </p>
+{% endblock %}
