@@ -26,6 +26,8 @@ ADD requirements.txt /app/requirements.txt
 
 WORKDIR /app
 
+COPY ./src /app/src
+
 RUN ["pip", "install", "--upgrade", "pip"]  
 RUN ["pip", "install", "-r", "requirements.txt"]  
 RUN ["pip", "install", "ipython", "bpython"]  
